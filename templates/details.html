@@ -8,12 +8,18 @@
 <body>
     <h1>{{ produkt.name }}</h1>
     
-    <!-- TODO Preis anzeigen -->
+    <p> {{ produkt.preis }} </p>
     
-    <!-- TODO Bild anzeigen -->
+    <img
+        src="{{ produkt.bild }}"
+        class="img-fluid rounded-top"
+        alt="Produktbild {{ produkt.name }}"
+        width="300px"
+    />
 
     <hr>
     
+    <a href="/">Zurück zur Startseite</a>
     <!-- TODO Link zurück zur Startseite -->
     
     <style>

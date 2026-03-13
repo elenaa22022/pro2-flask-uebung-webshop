@@ -1,5 +1,5 @@
 # Flask imports
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 # unser App-Objekt
 app = Flask(__name__)
@@ -22,20 +22,22 @@ produkte = {
     }
 }
 
+
 @app.route('/')
 def home():
-    # TODO: produkte auf der Homepage anzeigen, mit Link auf die Detailseite
-    
-    pass # kann gelöscht werden, wenn die Funktion fertig ist
+    return render_template("home.html", produkte = produkte)
 
-@app.route('... TODO hier eine geeignete Route eintragen ...')
+@app.route('/details/<id>')
 def details(id):
+    try:
+        produkt = produkte[int(id)]
+        return render_template("details.html", produkt = produkt)
+    except ValueError:
+        return "Produkt nicht gefunden", 400
     # TODO: Produkt mit der ID aus der URL auslesen und anzeigen (Template details.html)
     
     # TODO: falls eine ungültige id übergeben wird:
     # return "Produkt nicht gefunden", 404
-
-    pass # kann gelöscht werden, wenn die Funktion fertig ist
 
 # Server auf Port 3000 starten
 if __name__ == '__main__':

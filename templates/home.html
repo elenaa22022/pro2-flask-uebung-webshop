@@ -8,15 +8,12 @@
 <body>
     <h1>Obst-Shop</h1>
     <table>
-    <!-- eine Schleife mit Jinja, id ist die Nummer und Produkt enthält die Produktdaten -->
     {% for id, produkt in produkte.items() %}
-    
-        <!-- TODO: Hier eine Tabellen-Zeile einfügen (tr) -->
-        
-        <!-- TODO: In die Zeile zwei Spalten einfügen (td):
-            Name des Produkts, verlinkt auf die Detailseite,
-            Preis des Produkts
-         -->
+
+        <tr>
+            <td><a href="/details/{{ id }}"> {{ produkt["name"] }} </a></td>
+            <td> {{ produkt["preis"] }} </td>
+        </tr>
     
     {% endfor %}
     </table>
